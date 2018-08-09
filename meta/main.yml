@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Bryant Luk
+  role_name: symlink_repo
+  description: Symbolically links files from a git repository to a directory.
+  license: Apache
+  min_ansible_version: 2.6
+  platforms:
+    - name: MacOSX
+      versions:
+        - all
+  galaxy_tags:
+    - development
+    - system
+    - packaging
+dependencies: []

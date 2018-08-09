@@ -1,0 +1,29 @@
+---
+# tasks file for ansible-role-symlink-repo
+- name: Clone the git repository
+  git:
+    repo: "{{ git_repo }}"
+    dest: "{{ git_repo_local_dest }}"
+    force: no
+    recursive: yes
+    # Do not update automatically
+    update: no
+- name: Find all top level files/dirs in a specified directory
+  find:
+    paths: "{{ git_repo_local_dest }}/{{ git_repo_dir_src }}"
+    recurse: no
+    file_type: any
+    hidden: yes
+  register: files_list
+- name: Verify existing files are links
+  stat:
+    path: "{{ symlink_local_dest }}/{{ item.path | basename }}"
+  register: existing_files_list
+  failed_when: existing_files_list.stat.exists == true and existing_files_list.stat.islnk == false
+  loop: "{{ files_list.files|flatten(levels=1) }}"
+- name: Link files
+  file:
+    src: "{{ item.path }}"
+    dest: "{{ symlink_local_dest }}/{{ item.path | basename }}"
+    state: link
+  loop: "{{ files_list.files|flatten(levels=1) }}"

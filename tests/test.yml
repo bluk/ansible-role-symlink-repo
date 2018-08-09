@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  roles:
+    - role: ansible-role-symlink-repo
+      vars:
+        symlink_local_dest: "~/home"
