@@ -17,7 +17,7 @@ Role Variables
 
 * `git_repo_local_dest` - The path to clone the files to.
 
-* `git_repo_dir` - The path in the git repository to symbolically link from.
+* `git_repo_dir_src` - The path in the git repository to symbolically link from.
 
 * `symlink_local_dest` - The path to create the symbolic links
 
