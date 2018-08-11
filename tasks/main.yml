@@ -20,12 +20,11 @@
     path: "{{ symlink_local_dest }}/{{ item.path | basename }}"
   register: existing_files_list
   when: not symlink_local_force_replace
-  failed_when: existing_files_list.stat.exists == true and existing_files_list.stat.islnk == false
+  failed_when: existing_files_list.stat.exists == true and (existing_files_list.stat.islnk == false or existing_files_list.stat.lnk_source != item.path)
   loop: "{{ files_list.files|flatten(levels=1) }}"
 - name: Link files
   file:
     src: "{{ item.path }}"
     dest: "{{ symlink_local_dest }}/{{ item.path | basename }}"
     state: link
-    force: "{{ symlink_local_force_replace }}"
   loop: "{{ files_list.files|flatten(levels=1) }}"
