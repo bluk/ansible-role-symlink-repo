@@ -4,3 +4,4 @@
     - role: ansible-role-symlink-repo
       vars:
         symlink_local_dest: "~/home"
+        symlink_local_force_replace: true

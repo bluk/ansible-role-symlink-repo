@@ -8,7 +8,7 @@ An [Ansible](https://www.ansible.com) role to clone a repository and symbolicall
 Requirements
 ------------
 
-The destination directory must not contain existing files with the same names.
+By default, the destination directory must not contain existing files with the same names.
 
 Role Variables
 --------------
@@ -19,7 +19,9 @@ Role Variables
 
 * `git_repo_dir_src` - The path in the git repository to symbolically link from.
 
-* `symlink_local_dest` - The path to create the symbolic links
+* `symlink_local_dest` - The path to create the symbolic links.
+
+* `symlink_local_force_replace` - Replace existing files with symbolic links.
 
 Dependencies
 ------------

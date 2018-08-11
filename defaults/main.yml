@@ -6,3 +6,4 @@ git_repo_local_dest: "~/dotfiles"
 git_repo_dir_src: "home"
 
 symlink_local_dest: "~"
+symlink_local_force_replace: false
