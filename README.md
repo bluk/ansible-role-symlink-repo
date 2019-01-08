@@ -1,14 +1,14 @@
 ansible-role-symlink-repo
 =========================
 
-[![GitHub license](https://img.shields.io/github/license/bluk/ansible-role-symlink-repo.svg)](https://github.com/bluk/ansible-role-symlink-repo/blob/master/LICENSE) [![Build Status](https://travis-ci.org/bluk/ansible-role-symlink-repo.svg?branch=master)](https://travis-ci.org/bluk/ansible-role-symlink-repo)
-
-An [Ansible](https://www.ansible.com) role to clone a repository and symbolically link files/dirs to a specific directory.
+An [Ansible][ansible] role to clone a repository and symbolically link
+files/dirs to a specific directory.
 
 Requirements
 ------------
 
-By default, the destination directory must not contain existing files with the same names.
+By default, the destination directory must not contain existing files with the same
+names.
 
 Role Variables
 --------------
@@ -54,4 +54,7 @@ Example Playbook
 License
 -------
 
-Apache 2.0
+[Apache-2.0][LICENSE]
+
+[ansible]: https://www.ansible.com
+[LICENSE]: LICENSE
