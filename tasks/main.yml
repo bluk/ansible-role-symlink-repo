@@ -30,4 +30,5 @@
     src: "{{ item.path }}"
     dest: "{{ symlink_local_dest }}/{{ item.path | basename }}"
     state: link
+    force: "{{ symlink_local_force_replace }}"
   loop: "{{ files_list.files|flatten(levels=1) }}"
